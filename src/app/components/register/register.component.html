@@ -13,5 +13,31 @@
             </small>
         </div>
 
+        <div class="form-floating mb-3">
+            <input type="text" name="surname"  #surname="ngModel" [(ngModel)]="user.surname" placeholder="Write Last Name" class="form-control" required pattern="[a-z A-Z]+">
+            <label for="surname">Last Name</label>
+            <small class="text-danger fst-italic" *ngIf="!surname.valid && surname.touched">
+                The Last Name is wrong
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" name="email"  #email="ngModel" [(ngModel)]="user.email" placeholder="Write Email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <label for="email">Email</label>
+            <small class="text-danger fst-italic" *ngIf="!email.valid && email.touched">
+                The Email is wrong
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" name="password"  #password="ngModel" [(ngModel)]="user.password" placeholder="Write password" class="form-control" required>
+            <label for="password">Password</label>
+            <small class="text-danger fst-italic" *ngIf="!password.valid && password.touched">
+                The password should not be empty
+            </small>
+        </div>
+
+        <input type="submit" value="{{page_title}}" class="btn btn-success mt-3" [disabled]="registerForm.invalid"/>
+
     </form>
 </div>
