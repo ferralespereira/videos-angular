@@ -3,7 +3,7 @@
 
     <hr>
 
-    <form class="col-5 ms-0 p-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <form class="col-4 ms-0 p-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
 
         <div class="form-floating mb-3">
             <input type="text" name="name"  #name="ngModel" [(ngModel)]="user.name" placeholder="write name" class="form-control" required pattern="[a-zA-Z]+">
