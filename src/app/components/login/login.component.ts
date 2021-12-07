@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
   public message: string;
   
 constructor(
-  private _userService: UserService
+  private _userService: UserService,
+  private _router: Router,
+  private _route: ActivatedRoute
+
 ) {
   this.page_title = "Login";
   this.user = new User(1, '', '', '', '', 'ROLE_USER', '');
@@ -38,15 +42,20 @@ constructor(
         }else{
           this.status = 'success';
           this.identity = response;
-
-          console.log(this.identity);
-
+          
+          
           // saco el token
           this._userService.singup(this.user, true).subscribe(
             response => {
-                this.token = response;
+              this.token = response;
+              
+              localStorage.setItem('token', this.token);
+              localStorage.setItem('identity', JSON.stringify(this.identity));
+              
+              console.log(this.identity);
+              console.log(this.token);
 
-                console.log(this.token);
+              this._router.navigate(['/home']);
             }
           );
 
