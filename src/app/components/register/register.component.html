@@ -3,6 +3,14 @@
 
     <hr>
 
+    <div class="alert alert-success col-4 mt-3" align="center" *ngIf="status == 'success'">
+        The user is already registered, <a [routerLink]="['/login']">Login</a>
+    </div>
+
+    <div class="alert alert-danger col-4 mt-3" align="center" *ngIf="status == 'error'">
+        {{message}}
+    </div>
+
     <form class="col-4 ms-0 p-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
 
         <div class="form-floating mb-3">
