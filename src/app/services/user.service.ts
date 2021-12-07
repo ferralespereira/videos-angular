@@ -31,4 +31,21 @@ export class UserService{
     
   }
 
+  singup(user:any, gettoken:any = null):Observable<any>{
+
+    if(gettoken != null){
+      user.gettoken = 'true';
+    }
+
+    let json = JSON.stringify(user);
+    let params = 'json='+json;
+
+    // definir las cabeceras
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    
+    // hacer peticion ajax
+    return this._http.post(this.url+'login', params, {headers: headers});
+    
+  }
+
 }

@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   public page_title: string;
   public user: User;
+  public identity: any;
+  public token: string;
   public status: string;
   public message: string;
   
@@ -22,46 +24,38 @@ constructor(
   this.user = new User(1, '', '', '', '', 'ROLE_USER', '');
   this.status = '';
   this.message = '';
+  this.token = '';
 }
   ngOnInit(): void {
   }
 
   onSubmit(form:any){
-    // this._userService.register(this.user).subscribe(
-    //   response => {
-    //     if(response.user){
-    //       this.status = 'success';
-    //       form.reset();
-    //     }else{
-    //       this.status = 'error';
-    //       if(response.vaidator_error){
+    this._userService.singup(this.user).subscribe(
+      response => {
+        if(response.status == 'error'){
+          this.status = 'error';
+          this.message = response.message;
+        }else{
+          this.status = 'success';
+          this.identity = response;
 
-    //         if(response.vaidator_error.name){
-    //           this.message = response.vaidator_error.name;
-    //         }
+          console.log(this.identity);
 
-    //         if(response.vaidator_error.surname){
-    //           this.message = response.vaidator_error.surname;
-    //         }
+          // saco el token
+          this._userService.singup(this.user, true).subscribe(
+            response => {
+                this.token = response;
 
-    //         if(response.vaidator_error.email){
-    //           this.message = response.vaidator_error.email;
-    //         }
+                console.log(this.token);
+            }
+          );
 
-    //         if(response.vaidator_error.password){
-    //           this.message = response.vaidator_error.password;
-    //         }
-
-    //       }else{
-    //         this.message = response.message;
-    //       }
-    //     }
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // );
-    console.log(this.user);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
 
   }
 
