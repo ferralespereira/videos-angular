@@ -2,4 +2,35 @@
     <h1>{{page_title}}</h1>
 
     <hr>
+
+    <div class="alert alert-success col-4 mt-3" align="center" *ngIf="status == 'success'">
+        The user is already registered, <a [routerLink]="['/login']">Login</a>
+    </div>
+
+    <div class="alert alert-danger col-4 mt-3" align="center" *ngIf="status == 'error'">
+        {{message}}
+    </div>
+
+    <form class="col-4 ms-0 p-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+        <div class="form-floating mb-3">
+            <input type="text" name="email"  #email="ngModel" [(ngModel)]="user.email" placeholder="Write Email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <label for="email">Email</label>
+            <small class="text-danger fst-italic" *ngIf="!email.valid && email.touched">
+                The Email is wrong
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" name="password"  #password="ngModel" [(ngModel)]="user.password" placeholder="Write password" class="form-control" required>
+            <label for="password">Password</label>
+            <small class="text-danger fst-italic" *ngIf="!password.valid && password.touched">
+                The password should not be empty
+            </small>
+        </div>
+
+        <input type="submit" value="{{page_title}}" class="btn btn-success mt-3" [disabled]="loginForm.invalid"/>
+
+    </form>
+
 </div>
