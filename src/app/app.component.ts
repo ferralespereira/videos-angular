@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserService } from './services/user.service';
   providers: [UserService]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck{
   
   title = 'videos-angular';
   public identity:any;
@@ -22,8 +22,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
+  }
+  
+  ngDoCheck(){
     this.loadUser();
-  } 
+  }
 
   loadUser(){
     this.identity = this._userService.getIdentity();
