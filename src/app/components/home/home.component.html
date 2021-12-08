@@ -1,6 +1,21 @@
+<!-- <div class="col-12 mt-3" *ngIf="identity"> -->
 <div class="col-12 mt-3">
     <h1>{{page_title}}</h1>
 
     <hr>
+</div>
+
+
+<div class="col-12 mt-3">
+
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Your Videos!</h1>
+        <p class="lead">Here once you get registered you'll be avaible to save your favorite videos. Then you can see it whenever you want.</p>
+        <hr class="my-4">
+        <p>Feel free to copy all your favorite YOUTUBE video links.</p>
+        <a class="btn btn-primary btn-lg me-2" [routerLink]="['/login']" role="button">Login</a>
+        <a class="btn btn-success btn-lg" [routerLink]="['/register']" role="button">Register</a>
+    </div>
+
 </div>
 
