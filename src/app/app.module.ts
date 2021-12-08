@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { VideoNewComponent } from './components/video-new/video-new.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     ErrorComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserEditComponent,
+    VideoNewComponent
   ],
   imports: [
     BrowserModule,
