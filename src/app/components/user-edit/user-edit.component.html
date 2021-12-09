@@ -2,4 +2,43 @@
     <h1>{{page_title}}</h1>
 
     <hr>
+
+    <div class="alert alert-success col-4 mt-3" align="center" *ngIf="status == 'success'">
+        Your data is updated
+    </div>
+
+    <div class="alert alert-danger col-4 mt-3" align="center" *ngIf="status == 'error'">
+        {{message}}
+    </div>
+
+    <form class="col-4 ms-0 p-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
+
+        <div class="form-floating mb-3">
+            <input type="text" name="name"  #name="ngModel" [(ngModel)]="user.name" placeholder="write name" class="form-control" required pattern="[a-zA-Z]+">
+            <label for="name">Name</label>
+            <small class="text-danger fst-italic" *ngIf="!name.valid && name.touched">
+                The name is wrong
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" name="surname"  #surname="ngModel" [(ngModel)]="user.surname" placeholder="Write Last Name" class="form-control" required pattern="[a-z A-Z]+">
+            <label for="surname">Last Name</label>
+            <small class="text-danger fst-italic" *ngIf="!surname.valid && surname.touched">
+                The Last Name is wrong
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" name="email"  #email="ngModel" [(ngModel)]="user.email" placeholder="Write Email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <label for="email">Email</label>
+            <small class="text-danger fst-italic" *ngIf="!email.valid && email.touched">
+                The Email is wrong
+            </small>
+        </div>
+
+        <input type="submit" value="Update" class="btn btn-success mt-3" [disabled]="userEditForm.invalid"/>
+
+    </form>
+
 </div>
