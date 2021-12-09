@@ -4,7 +4,7 @@
     <hr>
 
     <div class="alert alert-success col-4 mt-3" align="center" *ngIf="status == 'success'">
-        New video saved
+        New video saved, <a [routerLink]="['/home']">See videos</a>
     </div>
 
     <div class="alert alert-danger col-4 mt-3" align="center" *ngIf="status == 'error'">
