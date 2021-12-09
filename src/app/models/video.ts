@@ -1,4 +1,4 @@
-export class User{
+export class Video{
     constructor(
       public id: number,
       public user_id: number,

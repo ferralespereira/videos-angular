@@ -2,4 +2,43 @@
     <h1>{{page_title}}</h1>
 
     <hr>
+
+    <div class="alert alert-success col-4 mt-3" align="center" *ngIf="status == 'success'">
+        New video saved
+    </div>
+
+    <div class="alert alert-danger col-4 mt-3" align="center" *ngIf="status == 'error'">
+        {{message}}
+    </div>
+
+    <form class="col-4 ms-0 p-0" #videoNew="ngForm" (ngSubmit)="onSubmit(videoNew)">
+
+        <div class="form-floating mb-3">
+            <input type="text" name="title"  #title="ngModel" [(ngModel)]="video.title" placeholder="write title" class="form-control" required>
+            <label for="title">Title</label>
+            <small class="text-danger fst-italic" *ngIf="!title.valid && title.touched">
+                The title is missing
+            </small>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <textarea name="description" #description="ngModel" [(ngModel)]="video.description" class="form-control" required></textarea>
+            <small class="text-danger fst-italic" *ngIf="!description.valid && description.touched">
+                The description is missing
+            </small>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" name="url"  #url="ngModel" [(ngModel)]="video.url" placeholder="Write url" class="form-control" required>
+            <label for="url">Video url</label>
+            <small class="text-danger fst-italic" *ngIf="!url.valid && url.touched">
+                The url is missing
+            </small>
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-success mt-3" [disabled]="videoNew.invalid"/>
+
+    </form>
+
 </div>
