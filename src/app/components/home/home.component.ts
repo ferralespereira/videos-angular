@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { VideoService } from '../../services/video.service';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [UserService]
+  providers: [UserService, VideoService]
 })
 export class HomeComponent implements OnInit {
 
@@ -14,7 +15,8 @@ export class HomeComponent implements OnInit {
   public token:string;
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService,
+    private _videoService: VideoService
   ) { 
     this.page_title = "Mis Videos";
     this.identity = '';
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUser();
+    this.getVideos();
   }
 
   loadUser(){
@@ -30,4 +33,16 @@ export class HomeComponent implements OnInit {
     this.token = this._userService.getToken();
   }
 
+  getVideos(){
+    this._videoService.getVideos(this.token).subscribe(
+      response => {
+        //aqui me quede
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+  }
 }
