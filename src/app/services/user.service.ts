@@ -48,14 +48,14 @@ export class UserService{
     
   }
 
-  update(token:string, user:any){
+  update(token:string, user:any):Observable<any>{
 
     let json = JSON.stringify(user);
     let params = 'json='+json;
 
     // definir las cabeceras
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-                                    .set('Authorization', token);
+                                   .set('Authorization', token);
     
     // hacer peticion ajax
     return this._http.put(this.url+'user/edit', params, {headers: headers});
