@@ -59,8 +59,6 @@ export class UserService{
     
     // hacer peticion ajax
     return this._http.put(this.url+'user/edit', params, {headers: headers});
-
-    
   }
 
   getIdentity(){
