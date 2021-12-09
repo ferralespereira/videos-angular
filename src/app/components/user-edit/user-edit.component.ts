@@ -23,7 +23,11 @@ export class UserEditComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.page_title = "User Settings";
-    this.user = new User(this.identity.sub, this.identity.name, this.identity.surname, this.identity.email, '', 'ROLE_USER', '');
+    this.user = new User(this.identity.sub,
+                         this.identity.name,
+                         this.identity.surname,
+                         this.identity.email,
+                         '', 'ROLE_USER', '');
     this.status = '';
     this.message = '';
   }
@@ -32,6 +36,7 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(form:any){
+    // aqui me quede
   }
 
 }
