@@ -4,18 +4,20 @@
     <hr>
 </div>
 
-<div class="card text-dark bg-light mb-3 w-50" *ngFor="let video of videos">
-    <div class="card-header fw-bold">{{video.title}}</div>
-    <div class="card-body">
-      <div class="video-image w-100" *ngIf="video.url">
-        <img src="{{getThumb(video.url)}}" class="w-50"/>
-        </div> 
-        <p class="card-text fst-italic">{{video.description}}</p>
-        
-        <div class="video-buttons mt-3">
-            <a href="#" class="btn btn-success me-2"><i class="bi bi-eye"></i> Read</a>
-            <a href="#" class="btn btn-warning me-2"><i class="bi bi-pen"></i> Edit</a>
-            <a href="#" class="btn btn-danger"><i class="bi bi-archive"></i> Delete</a>
+<div class="col-12 mt-3" *ngIf="identity">
+    <div class="card text-dark bg-light mb-3 w-50" *ngFor="let video of videos">
+        <div class="card-header fw-bold fs-4">{{video.title}}</div>
+        <div class="card-body">
+        <div class="video-image w-100" *ngIf="video.url">
+            <img src="{{getThumb(video.url)}}" class="w-50"/>
+            </div> 
+            <p class="card-text fst-italic">{{video.description}}</p>
+            
+            <div class="video-buttons mt-3">
+                <a href="#" class="btn btn-success me-2"><i class="bi bi-eye"></i> Read</a>
+                <a href="#" class="btn btn-warning me-2"><i class="bi bi-pen"></i> Edit</a>
+                <a href="#" class="btn btn-danger"><i class="bi bi-archive"></i> Delete</a>
+            </div>
         </div>
     </div>
 </div>
