@@ -4,6 +4,28 @@
     <hr>
 </div>
 
+<div class="card-columns">
+    <article class="card w-100" *ngFor="let video of videos">
+        <div class="card-headers">
+            <h3>
+                {{video.title}}
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <!-- la miniatura -->
+
+            <!-- los botones -->
+            <div class="video-buttons mt-3">
+                <a href="#" class="btn btn-success me-2">Read</a>
+                <a href="#" class="btn btn-warning me-2">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+    </div>
+    </article>
+</div>
+
+
 <div class="col-12 mt-3" *ngIf="!identity">
 
     <div class="jumbotron">

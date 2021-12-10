@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   public page_title: string;
   public identity:any;
   public token:string;
+  public videos: any;
 
   constructor(
     private _userService: UserService,
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
     this._videoService.getVideos(this.token).subscribe(
       response => {
         //aqui me quede
-        console.log(response);
+        this.videos = response.videos;
+        console.log(this.videos);
       },
       error => {
         console.log(error);
