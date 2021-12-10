@@ -45,6 +45,21 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
-
   }
+
+  getThumb(url:string) {
+    var video, results, thumburl;
+    
+     if (url === null) {
+         return '';
+     }
+     
+     results = url.match('[\\?&]v=([^&#]*)');
+     video   = (results === null) ? url : results[1];
+    
+         thumburl = 'http://img.youtube.com/vi/' + video + '/mqdefault.jpg';
+    
+      return thumburl;
+        
+    }
 }
