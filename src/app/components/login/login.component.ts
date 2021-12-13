@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   public token: string;
   public status: string;
   public message: string;
+  public show_spinner: boolean;
   
 constructor(
   private _userService: UserService,
@@ -29,12 +30,14 @@ constructor(
   this.status = '';
   this.message = '';
   this.token = '';
+  this.show_spinner = false;
 }
   ngOnInit(): void {
     this.logout();
   }
 
   onSubmit(form:any){
+    this.show_spinner = true;
     this._userService.singup(this.user).subscribe(
       response => {
         if(response.status == 'error'){
@@ -61,6 +64,9 @@ constructor(
           );
 
         }
+
+        this.show_spinner = false;
+
       },
       error => {
         console.log(error);

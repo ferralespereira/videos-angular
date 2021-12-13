@@ -24,8 +24,8 @@
                 The password should not be empty
             </small>
         </div>
-
-        <input type="submit" value="{{page_title}}" class="btn btn-success mt-3" [disabled]="loginForm.invalid"/>
+        <div id="spinner-add-ope" class="spinner-border text-primary" role="status" *ngIf="show_spinner"></div>
+        <input type="submit" value="{{page_title}}" class="btn btn-success mt-3" [disabled]="loginForm.invalid" *ngIf="!show_spinner"/>
 
     </form>
 
