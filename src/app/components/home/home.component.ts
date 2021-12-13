@@ -59,6 +59,14 @@ export class HomeComponent implements OnInit {
       response => {
         //aqui me quede
         this.videos = response.videos;
+
+        let number_pages:any = [];
+        for(let i = 1; i <= response.total_pages; i++){
+          number_pages.push(i);
+        }
+
+        this.number_pages = number_pages;
+
         // console.log(this.videos);
       },
       error => {
