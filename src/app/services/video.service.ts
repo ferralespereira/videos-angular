@@ -29,14 +29,14 @@ export class VideoService{
   }
 
 
-  getVideos(token:string):Observable<any>{
+  getVideos(token:string, page:any):Observable<any>{
 
     // definir las cabeceras
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
                                    .set('Authorization', token);
     
     // hacer peticion ajax
-    return this._http.get(this.url+'video/list', {headers: headers});
+    return this._http.get(this.url+'video/list/?page='+page, {headers: headers});
   }
 
   getVideo(token:string, id:any):Observable<any>{
