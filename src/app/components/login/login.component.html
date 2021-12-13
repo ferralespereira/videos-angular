@@ -25,8 +25,10 @@
             </small>
         </div>
         <div id="spinner-add-ope" class="spinner-border text-primary" role="status" *ngIf="show_spinner"></div>
-        <input type="submit" value="{{page_title}}" class="btn btn-success mt-3" [disabled]="loginForm.invalid" *ngIf="!show_spinner"/>
 
+        <button type="button" type="submit" class="btn btn-primary mt-3" [disabled]="loginForm.invalid" *ngIf="!show_spinner">
+            {{page_title}} <i class="bi bi-box-arrow-in-right"></i>
+        </button>
     </form>
 
 </div>
