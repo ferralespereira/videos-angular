@@ -21,8 +21,6 @@ export class HomeComponent implements OnInit {
   public properties_pages: any;
   public btn_prev_disabled: string;
   public btn_next_disabled: string;
-  // public page_active: any;
-  
 
   constructor(
     private _userService: UserService,
@@ -63,9 +61,9 @@ export class HomeComponent implements OnInit {
   getVideos(page:any){
     this._videoService.getVideos(this.token, page).subscribe(
       response => {
-        //aqui me quede
         this.videos = response.videos;
 
+        // guardo en esta variable algunas propiedades de cada pagina
         let properties_pages:any = [];
         for(let i = 1; i <= response.total_pages; i++){
           if(i == response.page){
