@@ -24,7 +24,7 @@
                 The password should not be empty
             </small>
         </div>
-        <div id="spinner-add-ope" class="spinner-border text-primary" role="status" *ngIf="show_spinner"></div>
+        <div class="spinner-border text-primary" role="status" *ngIf="show_spinner"></div>
 
         <button type="button" type="submit" class="btn btn-primary mt-3" [disabled]="loginForm.invalid" *ngIf="!show_spinner">
             {{page_title}} <i class="bi bi-box-arrow-in-right"></i>

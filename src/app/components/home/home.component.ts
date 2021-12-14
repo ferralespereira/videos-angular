@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   public properties_pages: any;
   public btn_prev_disabled: string;
   public btn_next_disabled: string;
+  public show_spinner: boolean;
+
 
   constructor(
     private _userService: UserService,
@@ -33,6 +35,7 @@ export class HomeComponent implements OnInit {
     this.token = '';
     this.btn_prev_disabled = '';
     this.btn_next_disabled = '';
+    this.show_spinner = false;
   }
 
   ngOnInit(): void {
@@ -59,6 +62,8 @@ export class HomeComponent implements OnInit {
   }
 
   getVideos(page:any){
+    this.show_spinner = true;
+
     this._videoService.getVideos(this.token, page).subscribe(
       response => {
         this.videos = response.videos;
@@ -94,6 +99,8 @@ export class HomeComponent implements OnInit {
         }
 
         // console.log(this.videos);
+        this.show_spinner = false;
+
       },
       error => {
         console.log(error);
