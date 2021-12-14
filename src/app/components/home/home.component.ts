@@ -66,11 +66,13 @@ export class HomeComponent implements OnInit {
         // guardo en esta variable algunas propiedades de cada pagina
         let properties_pages:any = [];
         for(let i = 1; i <= response.total_pages; i++){
+
+          let number:number = i;
+          let active:string = '';
           if(i == response.page){
-            properties_pages.push([i, 'active']);
-          }else{
-            properties_pages.push([i, ' ']);
+            active = 'active';
           }
+          properties_pages.push([number, active]);
         }
 
         this.properties_pages = properties_pages;
