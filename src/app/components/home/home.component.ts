@@ -122,5 +122,9 @@ export class HomeComponent implements OnInit {
     
       return thumburl;
         
-    }
+  }
+
+  removeVideo(id:number){
+    console.log(id);
+  }
 }

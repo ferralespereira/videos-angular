@@ -16,10 +16,16 @@
             <p class="card-text fst-italic">{{video.description}}</p>
             
             <div class="video-buttons mt-3">
-                <a href="#" class="btn btn-success me-2"><i class="bi bi-eye"></i> Read</a>
-                <a href="#" class="btn btn-warning me-2"><i class="bi bi-pen"></i> Edit</a>
-                <a href="#" class="btn btn-danger"><i class="bi bi-archive"></i> Delete</a>
-            </div>
+                <a href="#" class="btn btn-success me-2"><i class="bi bi-camera-video"></i></a>
+                <a href="#" class="btn btn-warning me-2"><i class="bi bi-pen"></i></a>
+                <a href="#remove-video-{{video.id}}" data-bs-toggle="collapse" class="btn btn-danger">
+                    <i class="bi bi-archive"></i>
+                </a>
+
+                <div class="alert alert-danger mt-1 collapse" id="remove-video-{{video.id}}">
+                    Do you want remove this video?
+                    <button type="button" (click)="removeVideo(video.id)" class="btn btn-danger mt-2">Remove</button>
+                </div>
         </div>
     </div>
 
