@@ -98,6 +98,8 @@ export class HomeComponent implements OnInit {
           this.btn_next_disabled = 'disabled';
         }
 
+        this.page = page;
+
         // console.log(this.videos);
         this.show_spinner = false;
 
@@ -126,5 +128,15 @@ export class HomeComponent implements OnInit {
 
   removeVideo(id:number){
     console.log(id);
+    this._videoService.delete(this.token, id).subscribe(
+      response => {
+        if (response.status == 'success'){
+          this.getVideos(this.page);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
