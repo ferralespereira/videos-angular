@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
   public page: any;
   public next_page: any;
   public prev_page: any;
-  public number_pages: any;
+  public properties_pages: any;
+  public btn_prev_disabled: string;
+  public btn_next_disabled: string;
+  // public page_active: any;
   
 
   constructor(
@@ -30,6 +33,8 @@ export class HomeComponent implements OnInit {
     this.page_title = "My Videos";
     this.identity = '';
     this.token = '';
+    this.btn_prev_disabled = '';
+    this.btn_next_disabled = '';
   }
 
   ngOnInit(): void {
@@ -61,23 +66,31 @@ export class HomeComponent implements OnInit {
         //aqui me quede
         this.videos = response.videos;
 
-        let number_pages:any = [];
+        let properties_pages:any = [];
         for(let i = 1; i <= response.total_pages; i++){
-          number_pages.push(i);
+          if(i == response.page){
+            properties_pages.push([i, 'active']);
+          }else{
+            properties_pages.push([i, ' ']);
+          }
         }
 
-        this.number_pages = number_pages;
+        this.properties_pages = properties_pages;
 
         if(page >= 2){
           this.prev_page = page-1;
+          this.btn_prev_disabled = '';
         }else{
           this.prev_page = 1;
+          this.btn_prev_disabled = 'disabled';
         }
 
         if(page < response.total_pages){
           this.next_page = page+1;
+          this.btn_next_disabled = '';
         }else{
           this.next_page = response.total_pages;
+          this.btn_next_disabled = 'disabled';
         }
 
         // console.log(this.videos);

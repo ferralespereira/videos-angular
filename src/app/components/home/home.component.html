@@ -23,13 +23,13 @@
 
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item">
+          <li class="page-item {{btn_prev_disabled}}">
               <a class="page-link" [routerLink]="['/home', prev_page]">Previous</a>
           </li>
-          <li class="page-item" *ngFor="let num of number_pages">
-              <a class="page-link" [routerLink]="['/home', num]">{{num}}</a>
+          <li class="page-item {{page[1]}}" *ngFor="let page of properties_pages">
+              <a class="page-link" [routerLink]="['/home', page[0]]">{{page[0]}}</a>
           </li>
-          <li class="page-item">
+          <li class="page-item {{btn_next_disabled}}">
               <a class="page-link" [routerLink]="['/home', next_page]">Next</a>
           </li>
         </ul>
