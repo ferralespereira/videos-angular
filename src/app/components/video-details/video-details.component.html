@@ -1,0 +1,11 @@
+<h1>{{page_title}}</h1>
+
+<div class="spinner-border text-primary" role="status" *ngIf="!video"></div>
+
+
+<div class="col-md-12 mt-3" *ngIf="video">
+    <h1>{{video.title}}</h1>
+
+    <span class="badge rounded-pill bg-secondary fst-italic">{{video.user.name}}</span>
+    <p>{{video.description}}</p>
+</div>

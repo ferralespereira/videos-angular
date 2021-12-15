@@ -15,6 +15,7 @@ import { VideoNewComponent } from './components/video-new/video-new.component';
 import { IdentityGuard } from './services/identity.guard';
 import { UserService } from './services/user.service';
 import { VideoEditComponent } from './components/video-edit/video-edit.component';
+import { VideoDetailsComponent } from './components/video-details/video-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VideoEditComponent } from './components/video-edit/video-edit.component
     LoginComponent,
     UserEditComponent,
     VideoNewComponent,
-    VideoEditComponent
+    VideoEditComponent,
+    VideoDetailsComponent
   ],
   imports: [
     BrowserModule,

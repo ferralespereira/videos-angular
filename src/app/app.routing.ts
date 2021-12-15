@@ -10,6 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { VideoNewComponent } from './components/video-new/video-new.component';
 import { VideoEditComponent } from './components/video-edit/video-edit.component';
+import { VideoDetailsComponent } from './components/video-details/video-details.component';
 
 import { IdentityGuard } from './services/identity.guard';
 
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'settings', component:UserEditComponent, canActivate: [IdentityGuard] },
   { path: 'save-favorites', component:VideoNewComponent, canActivate: [IdentityGuard] },
   { path: 'video-edit/:id', component:VideoEditComponent, canActivate: [IdentityGuard] },
+  { path: 'video/:id', component:VideoDetailsComponent, canActivate: [IdentityGuard] },
   { path: 'error', component:ErrorComponent },
   { path: '**', component:ErrorComponent }
 ];
