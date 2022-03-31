@@ -1,33 +1,34 @@
 <div class="container">
   <!-- nav bar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary rounded" >
+  <!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #59a9e2;"> -->
     <div class="container-fluid">
 
-      <i class="bi bi-camera-reels-fill fs-2 text-secondary" [routerLink]="['/home']" role="button"></i>
-      
+      <img _ngcontent-dpy-c35="" src="/assets/img/video-3.svg" [routerLink]="['/home']" role="button" style="width: 50px;" class="me-2" tabindex="0">
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="identity">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/home']">My Videos</a>
+            <a class="nav-link active text-light" aria-current="page" [routerLink]="['/home']">My Videos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/save-favorites']">
+            <a class="nav-link text-light" [routerLink]="['/save-favorites']">
               <i class="bi bi-plus-circle-fill"></i> Add video
             </a>
           </li>
         </ul>
 
         <ul class="navbar-nav navbar-right" *ngIf="!identity">
-          <li ><a class="nav-link" [routerLink]="['/login']">Login</a></li>
-          <li><a class="nav-link" [routerLink]="['/register']">Register</a></li>
+          <li ><a class="nav-link text-light" [routerLink]="['/login']">Login</a></li>
+          <li><a class="nav-link text-light" [routerLink]="['/register']">Register</a></li>
         </ul>
   
         <ul class="navbar-nav navbar-right" *ngIf="identity">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{identity.name + ' ' + identity.surname}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
