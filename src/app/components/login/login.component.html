@@ -11,7 +11,7 @@
         {{message}}
     </div>
 
-    <form class="col-4 ms-0 p-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <form class="col-md-4 ms-0 p-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
 
         <div class="form-floating mb-3">
             <input type="text" name="email"  #email="ngModel" [(ngModel)]="user.email" placeholder="Write Email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
