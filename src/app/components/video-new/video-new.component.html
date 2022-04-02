@@ -11,7 +11,7 @@
         {{message}}
     </div>
 
-    <form class="col-4 ms-0 p-0" #videoNew="ngForm" (ngSubmit)="onSubmit(videoNew)">
+    <form class="col-8 col-md-4 ms-0 p-0" #videoNew="ngForm" (ngSubmit)="onSubmit(videoNew)">
 
         <div class="form-floating mb-3">
             <input type="text" name="title"  #title="ngModel" [(ngModel)]="video.title" placeholder="write title" class="form-control" required>
