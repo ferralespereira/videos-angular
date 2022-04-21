@@ -1,4 +1,4 @@
-# [VideosAngular](https://video.javierfolder.com/)
+# [Videos-Angular](https://video.javierfolder.com/)
 
 <p align="center">
   <img src="https://github.com/ferralespereira/videos-angular/blob/master/src/assets/img/video.svg" width="350" title="Foro Angular">
@@ -11,6 +11,8 @@
 <p align="center">
   It is the Frontend of the Api Rest at https://github.com/ferralespereira/api-rest-symfony
 </p>
+<br>
+<br>
 <br>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
