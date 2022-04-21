@@ -1,4 +1,17 @@
-# VideosAngular
+# [VideosAngular](https://video.javierfolder.com/)
+
+<p align="center">
+  <img src="https://github.com/ferralespereira/videos-angular/blob/master/src/assets/img/video.svg" width="350" title="Foro Angular">
+</p>
+
+
+<p align="center">
+<strong>This is a project developed in Angular to store favorite Youtube video links.</strong>
+</p>
+<p align="center">
+  It is the Frontend of the Api Rest at https://github.com/ferralespereira/api-rest-symfony
+</p>
+<br>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
@@ -25,7 +38,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-# MY NOTES
-This an Angular Frontend Project with the goal of make a video personal web site
-
